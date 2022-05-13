@@ -8,9 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run a one-line script1
-        run: echo "Creating repo in organization"
-             curl \
+      - name: Calling create repo
+        run: curl \
                 -X POST \
                 -H "Authorization:Basic YXJqdW5kaGluZ3JhMjlAZ21haWwuY29tOmdocF9yYjhibXQxNjhjRlVhTDdINUJXT2ZlbWNIaXd6QXgzckU4aU8=" \
                 -H "Accept:application/vnd.github.v3+json" \
