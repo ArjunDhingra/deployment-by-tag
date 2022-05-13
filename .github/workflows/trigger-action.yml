@@ -9,4 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script1
-        run: echo "Code coverage issue for "
+        run: echo "Creating repo in organization"
+        code: curl \
+                -X POST \
+                -H "Authorization: Basic YXJqdW5kaGluZ3JhMjlAZ21haWwuY29tOmdocF9yYjhibXQxNjhjRlVhTDdINUJXT2ZlbWNIaXd6QXgzckU4aU8=" \
+                -H "Accept: application/vnd.github.v3+json" \
+                https://api.github.com/orgs/prashant-demo110/repos \
+                -d '{"name":"Hello-World-3","description":"This is your third repository","homepage":"https://github.com","private":false,"has_issues":true,"has_projects":true,"has_wiki":true}'
