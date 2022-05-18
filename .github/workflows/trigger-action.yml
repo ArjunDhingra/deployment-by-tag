@@ -13,7 +13,7 @@ jobs:
      - name: Getting repo list
        run: |
         curl -H "Accept:application/vnd.github.v3+json" https://api.github.com/orgs/prashant-demo110/repos -o repos.json
-        result = "$(grep -o '"name": "[^"]*' repos.json | grep -o '[^"]*$')"
+        result="$(grep -o '"name": "[^"]*' repos.json | grep -o '[^"]*$')"
         echo "$result"
      - name: Calling create repo
 #         run: echo ${{ github.event.inputs.email }}
