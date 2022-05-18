@@ -10,6 +10,11 @@ jobs:
   trigger_action:
     runs-on: ubuntu-latest
     steps:
-      - name: Calling create repo
-        #run: echo ${{ github.event.inputs.email }}
-        run: curl -X POST -H "Authorization:Basic YXJqdW5kaGluZ3JhMjlAZ21haWwuY29tOmdocF9yYjhibXQxNjhjRlVhTDdINUJXT2ZlbWNIaXd6QXgzckU4aU8=" -H "Accept:application/vnd.github.v3+json" https://api.github.com/orgs/prashant-demo110/repos -d '{"name":"${{ github.event.inputs.repoName }}","description":"This is your third repository","homepage":"https://github.com","private":false,"has_issues":true,"has_projects":true,"has_wiki":true}'
+     - name: Getting repo list
+       run: |
+        curl -H "Accept:application/vnd.github.v3+json" https://api.github.com/orgs/prashant-demo110/repos -o repos.json
+        cat repos.json
+     - name: Calling create repo
+#         run: echo ${{ github.event.inputs.email }}
+#         if: github.repository == '${{ github.event.inputs.repoName }}'
+       run: curl -X POST -H "Authorization:Basic YXJqdW5kaGluZ3JhMjlAZ21haWwuY29tOmdocF9yYjhibXQxNjhjRlVhTDdINUJXT2ZlbWNIaXd6QXgzckU4aU8=" -H "Accept:application/vnd.github.v3+json" https://api.github.com/orgs/prashant-demo110/repos -d '{"name":"${{ github.event.inputs.repoName }}","description":"This is your third repository","homepage":"https://github.com","private":false,"has_issues":true,"has_projects":true,"has_wiki":true}'
